@@ -3,7 +3,10 @@ package com.hobarb.gux;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
@@ -11,6 +14,8 @@ public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     LinearLayout linearLayout;
     SliderAdapter sliderAdapter;
+
+    Button proceed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +26,16 @@ public class MainActivity extends AppCompatActivity {
         linearLayout = findViewById(R.id.ll_main);
        sliderAdapter = new SliderAdapter(this);
         viewPager.setAdapter(sliderAdapter);
+        proceed = findViewById(R.id.button_proceed_main);
+
+        proceed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), Login.class));
+            }
+        });
+
+
 
     }
 }

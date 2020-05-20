@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">GUX</string>
+    <string name="procced_to_log_in">Procced to Log in</string>
+    <string name="i_understand">I understand</string>
 </resources>
