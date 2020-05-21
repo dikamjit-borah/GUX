@@ -10,15 +10,16 @@
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewpager_main"
         android:layout_width="match_parent"
-        android:layout_height="650dp">
+        android:layout_height="500dp">
 
     </androidx.viewpager.widget.ViewPager>
 
     <LinearLayout
+        android:layout_alignParentBottom="true"
         android:id="@+id/ll_main"
         android:layout_below="@id/viewpager_main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button

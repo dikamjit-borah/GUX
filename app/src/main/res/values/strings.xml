@@ -2,4 +2,7 @@
     <string name="app_name">GUX</string>
     <string name="procced_to_log_in">Procced to Log in</string>
     <string name="i_understand">I understand</string>
+    <string name="log_in">Log in</string>
+    <string name="enter_your_phone_number">Enter your phone number</string>
+    <string name="submit">Submit</string>
 </resources>
