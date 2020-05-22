@@ -16,14 +16,35 @@ public class Splash extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
 
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                finish();
+               onFirstRun();
             }
         }, SPLASH_TIME);
+
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        //onFirstRun();
+
+    }
+
+    public void onFirstRun(){
+
+        boolean ifFirstRun = getSharedPreferences("PREFERENCE", MODE_PRIVATE).getBoolean("ifFirstRun", true);
+
+        if(ifFirstRun)
+        {
+
+            getSharedPreferences("PREFERENCE", MODE_PRIVATE).edit().putBoolean("ifFirstRun", false).apply();
+            startActivity(new Intent(getApplicationContext(), MainActivity.class));
+            finish();
+
+        }
+        else
+        {
+            startActivity(new Intent(getApplicationContext(), Login.class));
+            finish();
+        }
+
     }
 }

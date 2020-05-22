@@ -2,8 +2,11 @@ package com.hobarb.gux;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.net.Uri;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -12,6 +15,7 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 public class My_details extends AppCompatActivity {
 
@@ -19,6 +23,7 @@ public class My_details extends AppCompatActivity {
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth firebaseAuth;
     StorageReference storageReference;
+    ImageView imageView;
 
 
     @Override
@@ -27,9 +32,19 @@ public class My_details extends AppCompatActivity {
         setContentView(R.layout.activity_my_details);
 
 
+        imageView = findViewById(R.id.imageView_md);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
         storageReference = FirebaseStorage.getInstance().getReference();
+        Toast.makeText(getApplicationContext(), "" + storageReference.getDownloadUrl(), Toast.LENGTH_SHORT);
+
+        storageReference.child(firebaseAuth.getCurrentUser().getUid()).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.get().load(uri).into(imageView);
+            }
+        });
+
 
         name = findViewById(R.id.TextView_name_md);
         mobile = findViewById(R.id.TextView_mobile_md);
