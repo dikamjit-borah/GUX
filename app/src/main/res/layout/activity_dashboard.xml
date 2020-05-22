@@ -4,22 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Dashboard">
+    tools:context=".Dashboard"
+    android:background="#ffffff">
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
        <LinearLayout
+           android:layout_margin="12dp"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
            android:orientation="vertical">
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:orientation="horizontal">
+
+               <Button
+                   android:id="@+id/button_search_dash"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:background="@drawable/custom_button"
+                   
+                   android:text="@android:string/search_go"
+                   android:textColor="#3F51B5" />
+
+               <Button
+                   android:id="@+id/button_myprofile_dash"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:background="@drawable/custom_button"
+                   
+                   android:text="My profile"
+                   android:textColor="#3F51B5" />
+
+               <Button
+                   android:id="@+id/button_about_dash"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_weight="1"
+                   android:background="@drawable/custom_button"
+                   
+                   android:text="About us"
+                   android:textColor="#3F51B5" />
+           </LinearLayout>
 
            <Button
                android:id="@+id/button_fetch_dash"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
-               android:text="Button" />
+               android:background="@drawable/custom_button"
+               
+               android:text="Fetch users"
+               android:textColor="#3F51B5" />
 
            <ListView
                android:id="@+id/listView_dash"
@@ -32,7 +73,10 @@
                android:layout_width="match_parent"
                android:layout_height="wrap_content"
                android:layout_below="@id/listView_dash"
-               android:text="Log out" />
+               android:background="@drawable/custom_button"
+               
+               android:text="Log out"
+               android:textColor="#F44336" />
        </LinearLayout>
 
     </ScrollView>

@@ -43,6 +43,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         firebaseAuth = FirebaseAuth.getInstance();
+        firestore = FirebaseFirestore.getInstance();
 
         phone = findViewById(R.id.editText_phone_login);
         otp = findViewById(R.id.editText_otp_login);

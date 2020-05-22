@@ -2,10 +2,8 @@ package com.hobarb.gux;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -13,30 +11,30 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class User_details extends AppCompatActivity {
+public class My_details extends AppCompatActivity {
 
-    TextView name, gotra, city, occupation;
-    FirebaseAuth firebaseAuth;
+    TextView name, city, mobile, gotra, qualify, birthplace, occupation;
     FirebaseFirestore firebaseFirestore;
+    FirebaseAuth firebaseAuth;
 
-    String USER_ID;
-    String name_str;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_details);
-        firebaseAuth = FirebaseAuth.getInstance();
-        firebaseFirestore = FirebaseFirestore.getInstance();
-
-        name = findViewById(R.id.textView_name_ud);
-        gotra = findViewById(R.id.textView_gotra_ud);
-        occupation = findViewById(R.id.TextView_occupation_ud);
-        city = findViewById(R.id.textView_city_ud);
+        setContentView(R.layout.activity_my_details);
 
 
-        Intent intent = getIntent();
-        USER_ID = intent.getStringExtra("user_id");
+firebaseAuth = FirebaseAuth.getInstance();
+firebaseFirestore = FirebaseFirestore.getInstance();
+        name = findViewById(R.id.TextView_name_md);
+        mobile = findViewById(R.id.TextView_mobile_md);
+        city = findViewById(R.id.TextView_city_md);
+        gotra = findViewById(R.id.TextView_gotra_md);
+        qualify = findViewById(R.id.TextView_qualification_md);
+        birthplace = findViewById(R.id.TextView_birthplace_md);
+        occupation = findViewById(R.id.TextView_occupation_md);
+
+       String USER_ID = firebaseAuth.getCurrentUser().getUid();
 
         DocumentReference documentReference = firebaseFirestore.collection("USER_DETAILS").document(USER_ID);
         documentReference.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
@@ -48,13 +46,19 @@ public class User_details extends AppCompatActivity {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }*/
-                name_str = documentSnapshot.getString("USER_NAME_");
-                name.setText(name_str);
+
+                name.setText(documentSnapshot.getString("USER_NAME_"));
                 occupation.setText(documentSnapshot.getString("OCCUPATION_"));
                 gotra.setText(documentSnapshot.getString("GOTRA_"));
                 city.setText(documentSnapshot.getString("CITY_"));
+                birthplace.setText(documentSnapshot.getString("BIRTHPLACE_"));
+                qualify.setText(documentSnapshot.getString("QUALIFICATION_"));
+                mobile.setText(documentSnapshot.getString("MOBILE_"));
 
             }
         });
+
+
+
     }
 }

@@ -7,53 +7,62 @@
     tools:context=".Registration">
 
     <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_margin="12dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <EditText
+            android:textAllCaps="true"
             android:id="@+id/editText_name_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Enter your name" />
-        <EditText
+        <EditText             
+            android:textAllCaps="true"
             android:id="@+id/editText_mobile_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Enter your mobile number" />
-        <EditText
+        <EditText             
+            android:textAllCaps="true"
             android:id="@+id/editText_city_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Enter your city" />
-        <EditText
+        <EditText             
+            android:textAllCaps="true"
             android:id="@+id/editText_occupation_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Enter your occupation" />
-        <EditText
+        <EditText             
+            android:textAllCaps="true"
             android:id="@+id/editText_qualification_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Enter your qualification" />
-        <EditText
+        <EditText             
+            android:textAllCaps="true"
             android:id="@+id/editText_gotra_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="Enter your gotra" />
-        <EditText
+        <EditText             
+            android:textAllCaps="true"
             android:id="@+id/editText_birthplace_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,19 +70,50 @@
             android:inputType="textPersonName"
             android:hint="Enter your birth place" />
 
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_file_reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="No file selected"
+                android:textAlignment="center"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/button_imgsel_reg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Select image"
+                android:textColor="#3F51B5"
+                android:background="@drawable/custom_button"/>
+        </LinearLayout>
+
         <Button
             android:id="@+id/button_submit_reg"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/submit" />
+
+            
+            android:text="@string/submit"
+             />
+
         <!-- <EditText
+            android:textAllCaps="true"
              android:id="@+id/editText"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"
              android:ems="10"
              android:inputType="textPersonName"
              android:hint="Name" />
-         <EditText
+         <EditText             
+            android:textAllCaps="true"
              android:id="@+id/editText"
              android:layout_width="match_parent"
              android:layout_height="wrap_content"

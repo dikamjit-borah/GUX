@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".My_details">
+
+    <LinearLayout
+        android:gravity="center"
+
+        android:layout_centerInParent="true"
+        android:layout_margin="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:id="@+id/TextView_name_md"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint=" name" />
+        <TextView
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:id="@+id/TextView_mobile_md"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint=" mobile number" />
+        <TextView
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:id="@+id/TextView_city_md"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint=" city" />
+        <TextView
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:id="@+id/TextView_occupation_md"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint=" occupation" />
+        <TextView
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:id="@+id/TextView_qualification_md"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint=" qualification" />
+        <TextView
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:id="@+id/TextView_gotra_md"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint=" gotra" />
+        <TextView
+            android:textAlignment="center"
+            android:textAllCaps="true"
+            android:id="@+id/TextView_birthplace_md"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:hint=" birth place" />
+    </LinearLayout>
+
+</RelativeLayout>

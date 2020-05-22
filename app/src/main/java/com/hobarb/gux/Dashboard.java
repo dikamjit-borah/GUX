@@ -24,7 +24,7 @@ import java.util.ArrayList;
 public class Dashboard extends AppCompatActivity {
 
     ListView listView;
-    Button logout, fetch;
+    Button logout, fetch, my_profile;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firestore;
     ArrayList<String> records = new ArrayList<>();
@@ -35,12 +35,29 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
-        listView = findViewById(R.id.listView_dash);
-        logout = findViewById(R.id.button_logout_dash);
-        fetch = findViewById(R.id.button_fetch_dash);
-
         firebaseAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
+
+        my_profile = findViewById(R.id.button_myprofile_dash);
+        my_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(), My_details.class));
+            }
+        });
+
+        listView = findViewById(R.id.listView_dash);
+        logout = findViewById(R.id.button_logout_dash);
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                firebaseAuth.getInstance().signOut();
+                finish();
+            }
+        });
+        fetch = findViewById(R.id.button_fetch_dash);
+
+
         /*ArrayAdapter adapter = new ArrayAdapter<String>(this,
                 R.layout.simple_list_item_1, mobileArray);
 
@@ -58,6 +75,7 @@ public class Dashboard extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 records.clear();
                                 int i = 0;
+
                                 for (QueryDocumentSnapshot document : task.getResult()) {
                                     i++;
                                     single_ID = (String) document.getId();
@@ -66,7 +84,6 @@ public class Dashboard extends AppCompatActivity {
                                     user_ids.add(single_ID);
                                     records.add(i + ") " + single_ID + " " + single_name);
                                 }
-
 
                             }
                         }
@@ -77,6 +94,12 @@ public class Dashboard extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG);
 
                 }
+                if(records.size()==0)
+                {
+                    Toast.makeText(getApplicationContext(), "Too fast! Try again", Toast.LENGTH_SHORT).show();
+
+                }
+
                 ArrayAdapter<String> adapter = new ArrayAdapter<String>(getApplicationContext(), R.layout.simple_list_item_1, records);
                 listView.setAdapter(adapter);
 

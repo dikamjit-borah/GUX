@@ -7,24 +7,38 @@
     tools:context=".User_details">
 
     <LinearLayout
+        android:layout_centerInParent="true"
+        android:layout_margin="12dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ImageView>
         <TextView
+            android:textAlignment="center"
             android:id="@+id/textView_name_ud"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:textAlignment="center"
+            android:id="@+id/TextView_occupation_ud"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:textAlignment="center"
+            android:id="@+id/textView_city_ud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
+        <TextView
+            android:textAlignment="center"
+            android:id="@+id/textView_gotra_ud"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView" />
