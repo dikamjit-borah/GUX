@@ -5,6 +5,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/textView_slide_slide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:text="Slide screen"
+        android:textAllCaps="true"
+        android:layout_above="@id/imageView_slide"/>
+
     <ImageView
         android:layout_centerInParent="true"
         android:id="@+id/imageView_slide"
@@ -13,15 +23,16 @@
         app:srcCompat="@drawable/hand1" />
 
     <TextView
-        android:textAlignment="center"
-        android:gravity="center"
+
         android:id="@+id/textView_slide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView_slide"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/archivo_black"
+        android:fontFamily="@font/bowlby_one_sc"
+        android:gravity="center"
         android:text="TextView"
+        android:textAlignment="center"
         android:textAllCaps="true"
         android:textSize="38sp" />
 </RelativeLayout>
