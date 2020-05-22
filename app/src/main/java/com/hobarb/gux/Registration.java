@@ -12,9 +12,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -23,6 +27,7 @@ public class Registration extends AppCompatActivity {
     private static final int PICK_MEDIA_REQUEST = 44;
     FirebaseAuth firebaseAuth;
     FirebaseFirestore firebaseFirestore;
+    StorageReference storageReference;
 
     Button submit, select_img;
 
@@ -46,8 +51,9 @@ public class Registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-       firebaseAuth = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         firebaseFirestore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
 
         user_name = findViewById(R.id.editText_name_reg);
         mobile = findViewById(R.id.editText_mobile_reg);
@@ -84,6 +90,7 @@ public class Registration extends AppCompatActivity {
                 else
                 {
                     upload_details();
+                    upload_file_also(uri);
                     Toast.makeText(getApplicationContext(), "User created", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), Dashboard.class));
                     finish();
@@ -91,15 +98,6 @@ public class Registration extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
-
-
-
-
-
 
     }
 
@@ -120,6 +118,20 @@ public class Registration extends AppCompatActivity {
 
         documentReference_users.set(user_details);
 
+
+    }
+
+    private void upload_file_also(Uri fileUri) {
+
+        final StorageReference sr = storageReference.child((USER_ID));
+        try {
+            sr.putFile(fileUri);
+        }
+        catch (Exception e)
+        {
+            Toast.makeText(getApplicationContext(), "Something's wrong", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
     }
 }

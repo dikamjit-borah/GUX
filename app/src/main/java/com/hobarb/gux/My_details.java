@@ -10,12 +10,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
 public class My_details extends AppCompatActivity {
 
     TextView name, city, mobile, gotra, qualify, birthplace, occupation;
     FirebaseFirestore firebaseFirestore;
     FirebaseAuth firebaseAuth;
+    StorageReference storageReference;
 
 
     @Override
@@ -24,8 +27,10 @@ public class My_details extends AppCompatActivity {
         setContentView(R.layout.activity_my_details);
 
 
-firebaseAuth = FirebaseAuth.getInstance();
-firebaseFirestore = FirebaseFirestore.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        storageReference = FirebaseStorage.getInstance().getReference();
+
         name = findViewById(R.id.TextView_name_md);
         mobile = findViewById(R.id.TextView_mobile_md);
         city = findViewById(R.id.TextView_city_md);

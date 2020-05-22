@@ -11,11 +11,16 @@
         android:layout_margin="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"></ImageView>
+
+            android:id="@+id/imageView_ud"
+            android:layout_width="512px"
+            android:layout_height="512px"
+            app:srcCompat="@drawable/ic_launcher_background" />
+
         <TextView
             android:textAlignment="center"
             android:id="@+id/textView_name_ud"
